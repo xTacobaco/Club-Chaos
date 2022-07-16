@@ -5,7 +5,7 @@
 
 class GameLoop {
 public:
-    unsigned long           FrameCount;
+    static double           elapsedTime;
     bool                    Keys[1024];
     unsigned int            Width, Height;
     

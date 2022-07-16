@@ -28,6 +28,11 @@ Texture ResourceManager::GetTexture(std::string name) {
     return Textures[name];
 }
 
+Level* ResourceManager::LoadLevel(const char* file) {
+    return loadLevelFromFile(file);
+
+}
+
 void ResourceManager::Clear() {
     for (auto iter : Shaders)
         glDeleteProgram(iter.second.ID);
@@ -91,4 +96,36 @@ Texture ResourceManager::loadTextureFromFile(const char* file, bool alpha) {
     texture.Generate(width, height, data);
     stbi_image_free(data);
     return texture;
+}
+
+Level* ResourceManager::loadLevelFromFile(const char* file) {
+    std::string image_path(file);
+    image_path.append(".png");
+    ResourceManager::LoadTexture(image_path.c_str(), true, file);
+    Texture lvlTexture = ResourceManager::GetTexture(file);
+    
+    std::string level_path(file);
+    level_path.append(".level");
+
+    std::ifstream stream(level_path);
+    std::string line;
+    unsigned int yy = 0;
+
+    Level* level = new Level(lvlTexture);
+    while (getline(stream, line)) {
+        int width = line.length();
+        for (int i = 0; i < width; i++) {
+            Tile* tile = new Tile(glm::vec2(i, yy));
+            if (line[i] == '0') {
+                tile->Visible = true;
+            }
+            if (yy <= 3) {
+                tile->Visible = false;
+            }
+            level->tiles[yy * width + i % width] = tile;
+        }
+        yy++;
+    }
+
+    return level;
 }

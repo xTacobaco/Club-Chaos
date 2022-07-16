@@ -42,7 +42,10 @@
     <ClCompile Include="src\SpriteObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameObject.cpp">
+    <ClCompile Include="src\Tile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -929,7 +932,73 @@
     <ClInclude Include="src\SpriteObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameObject.h">
+    <ClInclude Include="src\Tile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ESoundEngineOptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ESoundOutputDrivers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_EStreamModes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IAudioRecorder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IAudioStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IAudioStreamLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IFileFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IFileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IRefCounted.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_irrKlangTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundDeviceList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundEffectControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundMixedOutputReceiver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundSource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundStopEventReceiver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IVirtualRefCounted.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_SAudioStreamFormat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_vec3d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\irrKlang\include\irrklang\irrKlang.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1347,10 +1416,27 @@
     <None Include="README.md" />
     <None Include=".gitignore" />
     <None Include="LICENSE" />
+    <None Include="res\levels\lvl1.level" />
+    <None Include="vendor\irrKlang\lib\Win32-visualStudio\irrKlang.exp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="vendor\GLFW\lib-vc2019\glfw3.lib" />
     <Library Include="vendor\GLFW\lib-vc2019\glfw3_mt.lib" />
     <Library Include="vendor\GLFW\lib-vc2019\glfw3dll.lib" />
+    <Library Include="vendor\irrKlang\lib\Win32-visualStudio\irrKlang.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\tile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\levels\lvl1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\player.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\levels\lvl1.mp3" />
   </ItemGroup>
 </Project>

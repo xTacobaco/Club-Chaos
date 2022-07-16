@@ -13,9 +13,13 @@ public:
     SpriteObject(Shader& shader, Texture& texture);
     ~SpriteObject();
     void Render(glm::vec2 position, glm::vec2 size = glm::vec2(1.0f, 1.0f), float rotate = 0.0f, glm::vec3 color = glm::vec3(1.0f));
+
+    float Rotation = 0.0f;
+    glm::vec2 Size = glm::vec2(1.0f);
+    glm::vec3 Color = glm::vec3(1.0f);
 private:
     unsigned int VAO;
 
-    Shader          shader;
-    Texture         texture;
+    Shader shader;
+    Texture texture;
 };

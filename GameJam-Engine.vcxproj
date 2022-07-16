@@ -88,13 +88,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)vendor;$(SolutionDir)vendor\glad;$(SolutionDir)vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)vendor;$(SolutionDir)vendor\glad;$(SolutionDir)vendor\GLFW\include;$(SolutionDir)vendor\irrKlang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2019</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2019;$(SolutionDir)vendor\irrKlang\lib\Win32-visualStudio</AdditionalLibraryDirectories>
+      <AdditionalDependencies>irrKlang.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -105,15 +105,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)vendor;$(SolutionDir)vendor\glad;$(SolutionDir)vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)vendor;$(SolutionDir)vendor\glad;$(SolutionDir)vendor\GLFW\include;$(SolutionDir)vendor\irrKlang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2019</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2019;$(SolutionDir)vendor\irrKlang\lib\Win32-visualStudio</AdditionalLibraryDirectories>
+      <AdditionalDependencies>irrKlang.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -122,13 +122,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)vendor;$(SolutionDir)vendor\glad;$(SolutionDir)vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)vendor;$(SolutionDir)vendor\glad;$(SolutionDir)vendor\GLFW\include;$(SolutionDir)vendor\irrKlang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2019</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2019;$(SolutionDir)vendor\irrKlang\lib\Win32-visualStudio</AdditionalLibraryDirectories>
+      <AdditionalDependencies>irrKlang.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,36 +139,38 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)vendor;$(SolutionDir)vendor\glad;$(SolutionDir)vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)vendor;$(SolutionDir)vendor\glad;$(SolutionDir)vendor\GLFW\include;$(SolutionDir)vendor\irrKlang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2019</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)vendor\GLFW\lib-vc2019;$(SolutionDir)vendor\irrKlang\lib\Win32-visualStudio</AdditionalLibraryDirectories>
+      <AdditionalDependencies>irrKlang.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="src\SpriteObject.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\GameLoop.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\Tile.cpp" />
     <ClCompile Include="vendor\glad\glad.c" />
     <ClCompile Include="vendor\glm\detail\glm.cpp" />
     <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\GameObject.h" />
+    <ClInclude Include="src\Level.h" />
     <ClInclude Include="src\SpriteObject.h" />
     <ClInclude Include="src\ResourceManager.h" />
     <ClInclude Include="src\Shader.h" />
     <ClInclude Include="src\GameLoop.h" />
     <ClInclude Include="src\Texture.h" />
+    <ClInclude Include="src\Tile.h" />
     <ClInclude Include="vendor\glad\glad.h" />
     <ClInclude Include="vendor\GLAD\include\glad\glad.h" />
     <ClInclude Include="vendor\GLAD\include\KHR\khrplatform.h" />
@@ -457,13 +459,39 @@
     <ClInclude Include="vendor\glm\vec3.hpp" />
     <ClInclude Include="vendor\glm\vec4.hpp" />
     <ClInclude Include="vendor\glm\vector_relational.hpp" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ESoundEngineOptions.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ESoundOutputDrivers.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_EStreamModes.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IAudioRecorder.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IAudioStream.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IAudioStreamLoader.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IFileFactory.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IFileReader.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IRefCounted.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_irrKlangTypes.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISound.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundDeviceList.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundEffectControl.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundEngine.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundMixedOutputReceiver.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundSource.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_ISoundStopEventReceiver.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_IVirtualRefCounted.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_SAudioStreamFormat.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\ik_vec3d.h" />
+    <ClInclude Include="vendor\irrKlang\include\irrklang\irrKlang.h" />
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="LICENSE" />
     <None Include="README.md" />
-    <None Include="res\shaders\Basic.shader" />
+    <None Include="res\levels\lvl1.level">
+      <DeploymentContent>false</DeploymentContent>
+    </None>
+    <None Include="res\shaders\Basic.shader">
+      <DeploymentContent>false</DeploymentContent>
+    </None>
     <None Include="vendor\GLFW\lib-vc2019\glfw3.dll" />
     <None Include="vendor\glm\detail\func_common.inl" />
     <None Include="vendor\glm\detail\func_common_simd.inl" />
@@ -601,11 +629,31 @@
     <None Include="vendor\glm\gtx\vector_angle.inl" />
     <None Include="vendor\glm\gtx\vector_query.inl" />
     <None Include="vendor\glm\gtx\wrap.inl" />
+    <None Include="vendor\irrKlang\lib\Win32-visualStudio\irrKlang.exp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="vendor\GLFW\lib-vc2019\glfw3.lib" />
     <Library Include="vendor\GLFW\lib-vc2019\glfw3dll.lib" />
     <Library Include="vendor\GLFW\lib-vc2019\glfw3_mt.lib" />
+    <Library Include="vendor\irrKlang\lib\Win32-visualStudio\irrKlang.lib">
+      <DeploymentContent>true</DeploymentContent>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\levels\lvl1.png">
+      <DeploymentContent>false</DeploymentContent>
+    </Image>
+    <Image Include="res\textures\player.png">
+      <DeploymentContent>false</DeploymentContent>
+    </Image>
+    <Image Include="res\textures\tile.png">
+      <DeploymentContent>false</DeploymentContent>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\levels\lvl1.mp3">
+      <DeploymentContent>false</DeploymentContent>
+    </Media>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

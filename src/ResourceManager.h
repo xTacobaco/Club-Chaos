@@ -7,6 +7,7 @@
 
 #include "Texture.h"
 #include "Shader.h"
+#include "Level.h"
 
 class ResourceManager {
 public:
@@ -19,9 +20,12 @@ public:
     static Texture  LoadTexture(const char* file, bool alpha, std::string name);
     static Texture  GetTexture(std::string name);
 
+    static Level*  LoadLevel(const char* file);
+
     static void     Clear();
 private:
     ResourceManager() { }
     static Shader   loadShaderFromFile(const char* shaderFile);
     static Texture  loadTextureFromFile(const char* file, bool alpha);
+    static Level*  loadLevelFromFile(const char* file);
 };
