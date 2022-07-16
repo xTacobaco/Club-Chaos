@@ -14,10 +14,12 @@ Tile::~Tile() {
 }
 
 void Tile::Update(float deltaTime) {
-	if (! this->isPath) {
-		auto math = ((float)glm::sin(GameLoop::elapsedTime*4) + 0.5f) / 2.0f;
-		this->Color = glm::vec3(0.3f, 0.9f, 1.0f) * math;
+	if (this->Light) {
+		this->ColorTarget = this->Colors[((int)Position.x + (int)Position.y) % 2] * 2.0f;
+	} else {
+		this->ColorTarget = this->Colors[((int)Position.x + (int)Position.y) % 2] * 0.7f;
 	}
+	this->Color = glm::mix(this->Color, this->ColorTarget, glm::vec3(0.1f));
 }
 
 void Tile::Draw() {

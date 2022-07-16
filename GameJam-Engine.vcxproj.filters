@@ -48,6 +48,12 @@
     <ClCompile Include="src\Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vendor\GLFW\include\GLFW\glfw3.h">
@@ -1001,6 +1007,12 @@
     <ClInclude Include="vendor\irrKlang\include\irrklang\irrKlang.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="vendor\GLFW\lib-vc2019\glfw3.dll" />
@@ -1433,6 +1445,33 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\textures\player.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\dit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\dash.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\player2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\dice1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\dice2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\dice3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\dice4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\dice5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\dice6.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

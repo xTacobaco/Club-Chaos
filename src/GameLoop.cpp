@@ -2,7 +2,6 @@
 
 #include <vector>
 
-#include "Level.h"
 #include "SpriteObject.h"
 #include "ResourceManager.h"
 
@@ -10,12 +9,13 @@
 using namespace irrklang;
 ISoundEngine* SoundEngine = createIrrKlangDevice();
 
-std::vector<Level*> levels;
+int GameLoop::currentLevel = 0;
+std::vector<Level*> GameLoop::levels;
 
 double GameLoop::elapsedTime = 0;
 
 GameLoop::~GameLoop() {
-	for (auto level : levels) {
+	for (auto level : GameLoop::levels) {
 		delete level;
 	}
 }
@@ -29,19 +29,32 @@ void GameLoop::Init() {
 	basicShader.SetMatrix4("projection", projection);
 
 	ResourceManager::LoadTexture("res/textures/tile.png", true, "tile");
+	ResourceManager::LoadTexture("res/textures/dit.png", true, "dit");
+	ResourceManager::LoadTexture("res/textures/dash.png", true, "dash");
+	ResourceManager::LoadTexture("res/textures/player.png", true, "player");
+	ResourceManager::LoadTexture("res/textures/player2.png", true, "player2");
+	ResourceManager::LoadTexture("res/textures/dice1.png", true, "dice1");
+	ResourceManager::LoadTexture("res/textures/dice2.png", true, "dice2");
+	ResourceManager::LoadTexture("res/textures/dice3.png", true, "dice3");
+	ResourceManager::LoadTexture("res/textures/dice4.png", true, "dice4");
+	ResourceManager::LoadTexture("res/textures/dice5.png", true, "dice5");
+	ResourceManager::LoadTexture("res/textures/dice6.png", true, "dice6");
 
 	levels.push_back(ResourceManager::LoadLevel("res/levels/lvl1"));
 
 	SoundEngine->play2D("res/levels/lvl1.mp3", true);
+	SoundEngine->setSoundVolume(0.3f);
 }
 
 void GameLoop::Update(float deltatime) {
 	elapsedTime += (double) deltatime;
+
+	levels[currentLevel]->Update(deltatime);
 }
 
 void GameLoop::Render() {
 	glClearColor(0.13f, 0.1f, 0.15f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	levels[0]->Draw();
+	levels[currentLevel]->Draw();
 }

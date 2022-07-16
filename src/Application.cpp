@@ -12,6 +12,7 @@ const unsigned int SCREEN_WIDTH = 1280;
 const unsigned int SCREEN_HEIGHT = 720;
 
 GameLoop Game(SCREEN_WIDTH, SCREEN_HEIGHT);
+bool GameLoop::Keys[1024] = { false };
 
 int main(int argc, char* argv[]) {
     glfwInit();
@@ -58,9 +59,9 @@ int main(int argc, char* argv[]) {
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode) {
     if (key >= 0 && key < 1024) {
         if (action == GLFW_PRESS) {
-            Game.Keys[key] = true;
+            GameLoop::Keys[key] = true;
         } else if (action == GLFW_RELEASE) {
-            Game.Keys[key] = false;
+            GameLoop::Keys[key] = false;
         }
     }
 }
