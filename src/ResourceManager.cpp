@@ -115,7 +115,7 @@ Level* ResourceManager::loadLevelFromFile(const char* file) {
         int width = line.length();
         for (int i = 0; i < width; i++) {
             Tile* tile = new Tile(glm::vec2(i, yy));
-            if (line[i] == '0' || line[i] == '2' || line[i] == '3') {
+            if (line[i] == '0' || line[i] == '2' || line[i] == '3' || line[i] == '4' || line[i] == '5' || line[i] == '6' || line[i] == '7') {
                 tile->Visible = true;
             }
             if (line[i] == '2') {
@@ -126,6 +126,12 @@ Level* ResourceManager::loadLevelFromFile(const char* file) {
             if (line[i] == '3') {
                 level->goal = glm::vec2(i, yy);
             }
+
+            if (line[i] == '4') { level->npc[0] = new NPC(glm::vec2(i % width, yy), 4); }
+            if (line[i] == '5') { level->npc[1] = new NPC(glm::vec2(i % width, yy), 5); }
+            if (line[i] == '6') { level->npc[2] = new NPC(glm::vec2(i % width, yy), 6); }
+            if (line[i] == '7') { level->npc[3] = new NPC(glm::vec2(i % width, yy), 7); }
+
             if (yy <= 3) {
                 tile->Visible = false;
             }

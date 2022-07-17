@@ -42,7 +42,7 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
         glm::vec2 pos = player->TargetPosition;
         int index = (int)pos.y * 40 + (int)pos.x + i;
         if (index < 0 || index > 40 * 23) { break; }
-        if (!tiles[index]->Visible) { break; }
+        if (!tiles[index]->Visible || tiles[index]->NPC != 0) { break; }
         if (tiles[index]->isPath)
             if (glm::abs(i) < glm::abs(x)) { x = i; break; }
     }
@@ -50,7 +50,7 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
         glm::vec2 pos = player->TargetPosition;
         int index = (int)pos.y * 40 + (int)pos.x + i;
         if (index < 0 || index > 40 * 23) { break; }
-        if (!tiles[index]->Visible) { break; }
+        if (!tiles[index]->Visible || tiles[index]->NPC != 0) { break; }
         if (tiles[index]->isPath)
             if (glm::abs(i) < glm::abs(x)) { x = i; break; }
     }
@@ -59,7 +59,7 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
         glm::vec2 pos = player->TargetPosition;
         int index = ((int)pos.y + i) * 40 + (int)pos.x;
         if (index < 0 || index > 40 * 23) { break; }
-        if (!tiles[index]->Visible) { break; }
+        if (!tiles[index]->Visible || tiles[index]->NPC != 0) { break; }
         if (tiles[index]->isPath)
             if (glm::abs(i) < glm::abs(x)) { y = i; break; }
     }
@@ -67,7 +67,7 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
         glm::vec2 pos = player->TargetPosition;
         int index = ((int)pos.y + i) * 40 + (int)pos.x;
         if (index < 0 || index > 40 * 23) { break; }
-        if (!tiles[index]->Visible) { break; }
+        if (!tiles[index]->Visible || tiles[index]->NPC != 0) { break; }
         if (tiles[index]->isPath)
             if (glm::abs(i) < glm::abs(y)) { y = i; break; }
     }
@@ -93,11 +93,18 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
     }
     
     tiles[(int)player->TargetPosition.y * 40 + (int)player->TargetPosition.x]->isPath = true;
+
+    for (auto t : tiles) {
+        if (t->isPath) {
+            t->glow = 10.0f;
+        }
+    }
     currentPath = ++currentPath % pp.size();
 }
 
 Level::~Level() {
     for (auto t : tiles) { delete t; }
+    for (auto n : npc) { delete n; }
     delete lvlSprite;
     delete player;
     delete dice;
@@ -143,13 +150,15 @@ void Level::Draw() {
     arrowX = glm::mix(arrowX, 120.0f + pos.x / 25.0f * (float)(index + 1), 0.1f);
     arrow.Render(glm::vec2(arrowX, 128.0f), glm::vec2(48.0f));
 
-
-
     if ((int)(GameLoop::elapsedTime * 4.0) % 2 == 0)
         profile1.Render(glm::vec2(64.0f), glm::vec2(128.0f));
     else
         profile2.Render(glm::vec2(64.0f), glm::vec2(128.0f));
-        
+    
+    for (auto n : npc) {
+        n->Draw();
+    }
+
     player->Draw();
     dice->Draw();
 }

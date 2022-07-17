@@ -43,9 +43,18 @@ void GameLoop::Init() {
 	ResourceManager::LoadTexture("res/textures/dice4.png", true, "dice4");
 	ResourceManager::LoadTexture("res/textures/dice5.png", true, "dice5");
 	ResourceManager::LoadTexture("res/textures/dice6.png", true, "dice6");
-	
+
 	ResourceManager::LoadTexture("res/textures/kid1.png", true, "kid1");
 	ResourceManager::LoadTexture("res/textures/kid2.png", true, "kid2");
+
+	ResourceManager::LoadTexture("res/textures/disco1.png", true, "disco1");
+	ResourceManager::LoadTexture("res/textures/disco2.png", true, "disco2");
+	ResourceManager::LoadTexture("res/textures/cup1.png", true, "cup1");
+	ResourceManager::LoadTexture("res/textures/cup2.png", true, "cup2");
+	ResourceManager::LoadTexture("res/textures/fries1.png", true, "fries1");
+	ResourceManager::LoadTexture("res/textures/fries2.png", true, "fries2");
+	ResourceManager::LoadTexture("res/textures/donut1.png", true, "donut1");
+	ResourceManager::LoadTexture("res/textures/donut2.png", true, "donut2");
 
 	levels.push_back(ResourceManager::LoadLevel("res/levels/lvl1"));
 

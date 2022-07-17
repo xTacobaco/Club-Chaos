@@ -6,9 +6,12 @@
 #include "Player.h"
 #include <vector>
 
+#include "NPC.h";
+
 class Level {
 public:
     static const unsigned int tx = 40, ty = 23;
+    NPC* npc[4];
     Tile* tiles[tx * ty];
 
     std::vector<std::vector<glm::vec2>> pp;

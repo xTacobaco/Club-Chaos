@@ -12,6 +12,9 @@ public:
     bool            Light = false;
     bool            isPath = false;
     bool            Visible = false;
+    bool            npcActive = false;
+    int             NPC = 0;
+    float           glow = 0.0f;
     glm::vec2       Size = glm::vec2(32.0f);
     glm::vec3       Color = glm::vec3(0.3f, 0.9f, 1.0f);
     glm::vec3       ColorTarget = glm::vec3(0.3f, 0.9f, 1.0f);

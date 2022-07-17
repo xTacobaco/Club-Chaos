@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="src\Dice.cpp" />
     <ClCompile Include="src\Level.cpp" />
+    <ClCompile Include="src\NPC.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\SpriteObject.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="src\Dice.h" />
     <ClInclude Include="src\Level.h" />
+    <ClInclude Include="src\NPC.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\SpriteObject.h" />
     <ClInclude Include="src\ResourceManager.h" />
@@ -648,6 +650,8 @@
       <DeploymentContent>false</DeploymentContent>
     </Image>
     <Image Include="res\textures\arrow.png" />
+    <Image Include="res\textures\cup1.png" />
+    <Image Include="res\textures\cup2.png" />
     <Image Include="res\textures\dash.png" />
     <Image Include="res\textures\dice1.png" />
     <Image Include="res\textures\dice2.png" />
@@ -655,7 +659,13 @@
     <Image Include="res\textures\dice4.png" />
     <Image Include="res\textures\dice5.png" />
     <Image Include="res\textures\dice6.png" />
+    <Image Include="res\textures\disco1.png" />
+    <Image Include="res\textures\disco2.png" />
     <Image Include="res\textures\dit.png" />
+    <Image Include="res\textures\donut1.png" />
+    <Image Include="res\textures\donut2.png" />
+    <Image Include="res\textures\fries1.png" />
+    <Image Include="res\textures\fries2.png" />
     <Image Include="res\textures\kid1.png" />
     <Image Include="res\textures\kid2.png" />
     <Image Include="res\textures\line.png" />

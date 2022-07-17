@@ -54,6 +54,9 @@
     <ClCompile Include="src\Dice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\NPC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vendor\GLFW\include\GLFW\glfw3.h">
@@ -1013,6 +1016,9 @@
     <ClInclude Include="src\Dice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\NPC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="vendor\GLFW\lib-vc2019\glfw3.dll" />
@@ -1484,6 +1490,30 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\textures\line.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\cup1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\cup2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\disco1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\disco2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\fries2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\donut2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\fries1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\donut1.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
