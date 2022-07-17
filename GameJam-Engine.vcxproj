@@ -666,11 +666,13 @@
     <Image Include="res\textures\dit.png" />
     <Image Include="res\textures\donut1.png" />
     <Image Include="res\textures\donut2.png" />
+    <Image Include="res\textures\end.png" />
     <Image Include="res\textures\fries1.png" />
     <Image Include="res\textures\fries2.png" />
     <Image Include="res\textures\kid1.png" />
     <Image Include="res\textures\kid2.png" />
     <Image Include="res\textures\line.png" />
+    <Image Include="res\textures\menu.png" />
     <Image Include="res\textures\player.png">
       <DeploymentContent>false</DeploymentContent>
     </Image>
@@ -678,12 +680,16 @@
     <Image Include="res\textures\tile.png">
       <DeploymentContent>false</DeploymentContent>
     </Image>
+    <Image Include="res\textures\tutorial.png" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="res\audio\ouch.mp3" />
+    <Media Include="res\audio\shake.mp3" />
     <Media Include="res\levels\lvl1.mp3">
       <DeploymentContent>false</DeploymentContent>
     </Media>
     <Media Include="res\levels\lvl2.mp3" />
+    <Media Include="res\levels\titlescreen.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

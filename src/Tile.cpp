@@ -16,10 +16,11 @@ Tile::~Tile() {
 }
 
 void Tile::Update(float deltaTime) {
-	if (delay > 0.0f) {
+	if (delay >= 0.0f) {
 		delay -= deltaTime;
 		if (delay <= 0.0f) {
 			glow = 4.0f;
+			delay -= 0.1f;
 		}
 	}
 	

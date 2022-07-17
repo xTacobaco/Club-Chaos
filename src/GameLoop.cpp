@@ -1,23 +1,26 @@
 #include "GameLoop.h"
 
 #include <vector>
+#include <iostream>
 
 #include "SpriteObject.h"
 #include "ResourceManager.h"
 
-#include <irrklang/irrKlang.h>
-using namespace irrklang;
-ISoundEngine* SoundEngine = createIrrKlangDevice();
-
-int GameLoop::currentLevel = 1;
+int GameLoop::state = 0;
+int GameLoop::currentLevel = 0;
 std::vector<Level*> GameLoop::levels;
 
+
+ISoundEngine* GameLoop::SoundEngine = createIrrKlangDevice();
 double GameLoop::elapsedTime = 0;
 
 GameLoop::~GameLoop() {
 	for (auto level : GameLoop::levels) {
 		delete level;
 	}
+	delete MenuSprite;
+	delete TutorialSprite;
+	delete EndSprite;
 }
 
 void GameLoop::Init() {
@@ -57,23 +60,72 @@ void GameLoop::Init() {
 	ResourceManager::LoadTexture("res/textures/donut1.png", true, "donut1");
 	ResourceManager::LoadTexture("res/textures/donut2.png", true, "donut2");
 
+	ResourceManager::LoadTexture("res/textures/menu.png", false, "menu");
+	ResourceManager::LoadTexture("res/textures/tutorial.png", false, "tutorial");
+	ResourceManager::LoadTexture("res/textures/end.png", false, "end");
+	
+	Texture menuTexture = ResourceManager::GetTexture("menu");
+	MenuSprite = new SpriteObject(basicShader, menuTexture);
+
+	Texture tutorialTexture = ResourceManager::GetTexture("tutorial");
+	TutorialSprite = new SpriteObject(basicShader, tutorialTexture);
+
+	Texture endTexture = ResourceManager::GetTexture("end");
+	EndSprite = new SpriteObject(basicShader, endTexture);
+	
 	levels.push_back(ResourceManager::LoadLevel("res/levels/lvl1", 1));
 	levels.push_back(ResourceManager::LoadLevel("res/levels/lvl2", 2));
 
-	//SoundEngine->play2D("res/levels/lvl1.mp3", true);
-	SoundEngine->play2D("res/levels/lvl2.mp3", true);
-	SoundEngine->setSoundVolume(0.3f);
+	GameLoop::SoundEngine->play2D("res/levels/titlescreen.mp3", true);
+	GameLoop::SoundEngine->setSoundVolume(0.3f);
 }
 
 void GameLoop::Update(float deltatime) {
-	elapsedTime += (double) deltatime;
+	if (GameLoop::state == 0) {
+		if (GameLoop::Keys[GLFW_KEY_SPACE]) {
+			pressed = true;
+			GameLoop::state = 1;
+		}
+	}
+	if (GameLoop::state == 1) {
+		if (! GameLoop::Keys[GLFW_KEY_SPACE]) {
+			pressed = false;
+		}
+		if (! pressed && GameLoop::Keys[GLFW_KEY_SPACE]) {
+			GameLoop::state = 2;
+			GameLoop::SoundEngine->setAllSoundsPaused();
+			GameLoop::SoundEngine->play2D("res/levels/lvl1.mp3", true);
+		}
+	}
 
-	levels[currentLevel]->Update(deltatime);
+	if (GameLoop::state == 2) {
+		if (GameLoop::currentLevel == 0) {
+			elapsedTime += (double) deltatime;
+		}
+		if (GameLoop::currentLevel == 1) {
+			elapsedTime += (double)deltatime * 1.08f; // crazy game-jammy hack to match bpm of song
+		}
+		levels[currentLevel]->Update(deltatime);
+	}
 }
 
 void GameLoop::Render() {
 	glClearColor(0.13f, 0.1f, 0.15f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-
-	levels[currentLevel]->Draw();
+	
+	if (GameLoop::state == 0) {
+		glm::vec2 pos = glm::vec2(1280.0f, 720.0f);
+		MenuSprite->Render(pos / 2.0f, pos);
+	}
+	if (GameLoop::state == 1) {
+		glm::vec2 pos = glm::vec2(1280.0f, 720.0f);
+		TutorialSprite->Render(pos / 2.0f, pos);
+	}
+	if (GameLoop::state == 2) {
+		levels[currentLevel]->Draw();
+	}
+	if (GameLoop::state == 3) {
+		glm::vec2 pos = glm::vec2(1280.0f, 720.0f);
+		EndSprite->Render(pos / 2.0f, pos);
+	}
 }

@@ -1520,9 +1520,21 @@
     <Image Include="res\levels\lvl2.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\textures\menu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\tutorial.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\end.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\levels\lvl1.mp3" />
     <Media Include="res\levels\lvl2.mp3" />
+    <Media Include="res\levels\titlescreen.mp3" />
+    <Media Include="res\audio\ouch.mp3" />
+    <Media Include="res\audio\shake.mp3" />
   </ItemGroup>
 </Project>

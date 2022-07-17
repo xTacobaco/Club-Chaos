@@ -13,6 +13,8 @@ public:
     glm::vec2       TargetPosition;
     glm::vec2       Size = glm::vec2(32.0f);
     double          moved;
+    double          damage;
+    bool            released = true;
     
     Player(glm::vec2 pos);
     ~Player();

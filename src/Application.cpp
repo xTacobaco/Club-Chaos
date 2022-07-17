@@ -1,3 +1,5 @@
+#pragma comment( linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"" ) 
+
 #include <iostream>
 
 #include "GameLoop.h"

@@ -79,18 +79,23 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
             if (glm::abs(i) < glm::abs(y)) { y = i; break; }
     }
 
+    int offset = 1;
     glm::vec2 pos = player->TargetPosition;
     if (glm::abs(x) < 8 || glm::abs(y) < 8) {
         if (glm::abs(x) < glm::abs(y)) {
             pos.x += x;
             for (int i = 0; i < glm::abs(x); i++) {
                 tiles[(int)player->TargetPosition.y * 40 + ((int)player->TargetPosition.x + i * glm::sign(x))]->isPath = true;
+                tiles[(int)player->TargetPosition.y * 40 + ((int)player->TargetPosition.x + i * glm::sign(x))]->delay = (float)offset / 100.0f;
+                offset++;
             }
         }
         else {
             pos.y += y;
             for (int i = 0; i < glm::abs(y); i++) {
                 tiles[((int)player->TargetPosition.y + i * glm::sign(y)) * 40 + (int)player->TargetPosition.x]->isPath = true;
+                tiles[((int)player->TargetPosition.y + i * glm::sign(y)) * 40 + (int)player->TargetPosition.x]->delay = (float)offset / 100.0f;
+                offset++;
             }
         }
     }
@@ -103,11 +108,13 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
     }
     
     tiles[(int)player->TargetPosition.y * 40 + (int)player->TargetPosition.x]->isPath = true;
+    tiles[(int)player->TargetPosition.y * 40 + (int)player->TargetPosition.x]->delay = 0.0f;
 
-    for (int i = 0; i < pp[currentPath].size(); i++) {
+
+    for (unsigned int i = 0; i < pp[currentPath].size(); i++) {
         int index = (int)pp[currentPath][i].y * 40 + (int)pp[currentPath][i].x;
         if (tiles[index]->isPath) {
-            tiles[index]->delay = (float)i / 100.0f;
+            tiles[index]->delay = (float)(offset+i) / 100.0f;
         }
     }
     currentPath = ++currentPath % pp.size();
@@ -124,6 +131,7 @@ Level::~Level() {
 void Level::Update(float deltatime) {
     if ((int)GameLoop::elapsedTime % 8 == 0 && lastPatherized < (int)GameLoop::elapsedTime) {
         Patherize();
+        GameLoop::SoundEngine->play2D("res/audio/shake.mp3", false);
         lastPatherized = (int)GameLoop::elapsedTime + 1;
     }
 
@@ -145,15 +153,23 @@ void Level::Draw() {
 
     for (int i = 0; i < 16; i++) {
         glm::vec3 col = glm::vec3(0.5f);
-        if ((int)((GameLoop::elapsedTime+15.5f) * 2.0f) % 16 == i) {
+        if ((int)((GameLoop::elapsedTime+16.0f) * 2.0f) % 16 == i) {
             col = glm::vec3(1.0f);
         }
-        if (i % 2 != 0)
-            dit.Render(glm::vec2(110.0f + (pos.x*1.15f) / 25.0f * (float)(i + 1), 64.0f), glm::vec2(48.0f), 0.0f, col);
-        else
-            dash.Render(glm::vec2(110.0f + (pos.x*1.15f) / 25.0f * (float)(i + 1), 64.0f), glm::vec2(48.0f), 0.0f, col);
+        if (GameLoop::currentLevel == 0) {
+            if (i % 2 != 0)
+                dit.Render(glm::vec2(110.0f + (pos.x * 1.15f) / 25.0f * (float)(i + 1), 64.0f), glm::vec2(48.0f), 0.0f, col);
+            else
+                dash.Render(glm::vec2(110.0f + (pos.x * 1.15f) / 25.0f * (float)(i + 1), 64.0f), glm::vec2(48.0f), 0.0f, col);
+        } else {
+            if (i == 0 || i == 2 || i == 5 || i == 6 || i == 8 || i == 10 || i == 13 || i == 14) {
+                dit.Render(glm::vec2(110.0f + (pos.x * 1.15f) / 25.0f * (float)(i + 1), 64.0f), glm::vec2(48.0f), 0.0f, col);
+            } else {
+                dash.Render(glm::vec2(110.0f + (pos.x * 1.15f) / 25.0f * (float)(i + 1), 64.0f), glm::vec2(48.0f), 0.0f, col);
+            }
+        }
     }
-    int index = (int)((GameLoop::elapsedTime + 15.5f) * 2.0f) % 16;
+    int index = (int)((GameLoop::elapsedTime + 16.0f) * 2.0f) % 16;
     arrowX = glm::mix(arrowX, 110.0f + (pos.x*1.15f) / 25.0f * (float)(index + 1), 0.1f);
     arrow.Render(glm::vec2(arrowX, 128.0f), glm::vec2(48.0f));
 

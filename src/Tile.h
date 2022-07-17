@@ -15,7 +15,7 @@ public:
     bool            npcActive = false;
     int             NPC = 0;
     float           glow = 1.0f;
-    float           delay = 0.0f;
+    float           delay = -0.1f;
     glm::vec2       Size = glm::vec2(32.0f);
     glm::vec3       Color = glm::vec3(0.3f, 0.9f, 1.0f);
     glm::vec3       ColorTarget = glm::vec3(0.3f, 0.9f, 1.0f);
