@@ -1,7 +1,6 @@
 #include "Player.h"
 
 #include <cmath>
-#include <iostream>
 
 #include "Gameloop.h"
 #include "ResourceManager.h"
@@ -34,28 +33,28 @@ void Player::Update(float deltaTime) {
 			auto time = std::fmod(GameLoop::elapsedTime * 2.0f, 16.0f);
 			if (GameLoop::currentLevel == 0) {
 				if (
-					(time > 1.0f && time < 1.4f) ||
-					(time > 3.0f && time < 3.4f) ||
-					(time > 5.0f && time < 5.4f) ||
-					(time > 7.0f && time < 7.4f) ||
-					(time > 9.0f && time < 9.4f) ||
-					(time > 11.0f && time < 11.4f) ||
-					(time > 13.0f && time < 13.4f) ||
-					(time > 15.0f && time < 15.4f)
+					(time > 1.0f && time < 2.0f) ||
+					(time > 3.0f && time < 4.0f) ||
+					(time > 5.0f && time < 6.0f) ||
+					(time > 7.0f && time < 8.0f) ||
+					(time > 9.0f && time < 10.0f) ||
+					(time > 11.0f && time < 12.0f) ||
+					(time > 13.0f && time < 14.0f) ||
+					(time > 15.0f && time < 16.0f)
 					) {
 					hit = true;
 				}
 			}
 			else if (GameLoop::currentLevel == 1) {
 				if (
-					(time > 0.0f && time < 0.4f) ||
-					(time > 2.0f && time < 2.4f) ||
-					(time > 5.0f && time < 5.4f) ||
-					(time > 6.0f && time < 6.4f) ||
-					(time > 8.0f && time < 8.4f) ||
-					(time > 10.0f && time < 10.4f) ||
-					(time > 13.0f && time < 13.4f) ||
-					(time > 14.0f && time < 14.4f)
+					(time > 0.0f && time < 1.0f) ||
+					(time > 2.0f && time < 3.0f) ||
+					(time > 5.0f && time < 6.0f) ||
+					(time > 6.0f && time < 7.0f) ||
+					(time > 8.0f && time < 9.0f) ||
+					(time > 10.0f && time < 11.0f) ||
+					(time > 13.0f && time < 14.0f) ||
+					(time > 14.0f && time < 15.0f)
 					) {
 					hit = true;
 				}
@@ -89,7 +88,7 @@ void Player::Update(float deltaTime) {
 					GameLoop::state = 3;
 				}
 				
-				moved = GameLoop::elapsedTime;
+				moved = 0.5 + GameLoop::elapsedTime;
 			} else {
 				// else screenshake + penelty
 				moved = 1 + GameLoop::elapsedTime;

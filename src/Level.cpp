@@ -1,7 +1,5 @@
 #include "Level.h"
 
-#include <iostream>
-
 #include "GameLoop.h"
 #include "ResourceManager.h"
 
@@ -111,10 +109,14 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
     tiles[(int)player->TargetPosition.y * 40 + (int)player->TargetPosition.x]->delay = 0.0f;
 
 
+    int first = 0;
     for (unsigned int i = 0; i < pp[currentPath].size(); i++) {
         int index = (int)pp[currentPath][i].y * 40 + (int)pp[currentPath][i].x;
         if (tiles[index]->isPath) {
-            tiles[index]->delay = (float)(offset+i) / 100.0f;
+            if (first == 0) {
+                first = i;
+            }
+            tiles[index]->delay = (float)(i-first+offset) / 100.0f;
         }
     }
     currentPath = ++currentPath % pp.size();

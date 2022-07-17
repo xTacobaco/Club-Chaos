@@ -681,6 +681,7 @@
       <DeploymentContent>false</DeploymentContent>
     </Image>
     <Image Include="res\textures\tutorial.png" />
+    <Image Include="screenshots\Club_Chaos.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\audio\ouch.mp3" />

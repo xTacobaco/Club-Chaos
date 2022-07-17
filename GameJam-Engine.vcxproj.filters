@@ -1529,6 +1529,9 @@
     <Image Include="res\textures\end.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="screenshots\Club_Chaos.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\levels\lvl1.mp3" />
