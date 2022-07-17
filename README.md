@@ -1,9 +1,8 @@
-# GameJam-Engine
+# Club Chaos
+![Cover picture](screenshots/Club_Chaos.png?raw=true "Club Chaos")
 
-Boilerplate OpenGL "Game Engine", written in C++ for use in [GMTK 2022](https://itch.io/jam/gmtk-jam-2022)
+Club chaos is a game jam game made for [GMTK 2022](https://itch.io/jam/gmtk-jam-2022)
 
-### Dependencies
-* [GLFW](https://github.com/glfw/glfw)
-* [GLAD](https://github.com/Dav1dde/glad)
-* [GLM](https://github.com/g-truc/glm)
-* [STB](https://github.com/nothings/stb.git)
+*Dance into the night along the illuminated path before you, but don’t miss a beat when it shuffles and changes*
+
+[Itch.io](https://itch.io/game/1622537)
