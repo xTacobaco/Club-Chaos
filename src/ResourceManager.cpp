@@ -127,10 +127,10 @@ Level* ResourceManager::loadLevelFromFile(const char* file) {
                 level->goal = glm::vec2(i, yy);
             }
 
-            if (line[i] == '4') { level->npc[0] = new NPC(glm::vec2(i % width, yy), 4); }
-            if (line[i] == '5') { level->npc[1] = new NPC(glm::vec2(i % width, yy), 5); }
-            if (line[i] == '6') { level->npc[2] = new NPC(glm::vec2(i % width, yy), 6); }
-            if (line[i] == '7') { level->npc[3] = new NPC(glm::vec2(i % width, yy), 7); }
+            if (line[i] == '4') { level->npc[0] = new NPC(glm::vec2(i % width, yy), 4); tile->NPC = 4; }
+            if (line[i] == '5') { level->npc[1] = new NPC(glm::vec2(i % width, yy), 5); tile->NPC = 5; }
+            if (line[i] == '6') { level->npc[2] = new NPC(glm::vec2(i % width, yy), 6); tile->NPC = 6; }
+            if (line[i] == '7') { level->npc[3] = new NPC(glm::vec2(i % width, yy), 7); tile->NPC = 7; }
 
             if (yy <= 3) {
                 tile->Visible = false;

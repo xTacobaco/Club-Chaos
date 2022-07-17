@@ -14,7 +14,7 @@ Tile::~Tile() {
 }
 
 void Tile::Update(float deltaTime) {
-	if (this->Light) {
+	if (this->Light || npcActive) {
 		this->ColorTarget = this->Colors[((int)Position.x + (int)Position.y) % 2] * 2.0f;
 	} else {
 		this->ColorTarget = this->Colors[((int)Position.x + (int)Position.y) % 2] * 0.7f;

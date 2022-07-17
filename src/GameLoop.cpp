@@ -33,6 +33,7 @@ void GameLoop::Init() {
 	ResourceManager::LoadTexture("res/textures/dit.png", true, "dit");
 	ResourceManager::LoadTexture("res/textures/dash.png", true, "dash");
 	ResourceManager::LoadTexture("res/textures/arrow.png", true, "arrow");
+	ResourceManager::LoadTexture("res/textures/line.png", true, "line");
 	
 	ResourceManager::LoadTexture("res/textures/player.png", true, "player");
 	ResourceManager::LoadTexture("res/textures/player2.png", true, "player2");

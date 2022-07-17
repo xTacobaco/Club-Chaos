@@ -20,7 +20,7 @@ public:
     std::vector<glm::vec2> path = { { 0, 11 }, { 1, 11 }, { 2, 11 }, { 3, 11 }, { 3, 10 }, { 4, 10 }, { 5, 10 }, { 5, 11 }, { 6, 11 }, { 7, 11 }, { 8, 11 } , { 9, 11 }, { 9, 10 }, { 9, 9 }, { 9, 8 }, { 9, 7 }, { 9, 6 }, { 10, 6 }, { 11, 6 }, { 11, 7 } };
     std::vector<glm::vec2> path2 = { { 0, 11 }, { 1, 11 }, { 2, 11 }, { 3, 11 }, { 4, 11 }, { 5, 11 }, { 6, 11 }, { 7, 11 }, { 8, 11 }, { 9, 11 }, { 10, 11 }, { 11, 11 }, { 12, 11 } };
     SpriteObject* lvlSprite;
-    SpriteObject dit, dash, arrow, profile1, profile2;
+    SpriteObject dit, dash, arrow, line, profile1, profile2;
     float arrowX = 0.0f;
     Player* player;
     Dice* dice;

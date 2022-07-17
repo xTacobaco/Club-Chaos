@@ -30,8 +30,17 @@ void Player::Update(float deltaTime) {
 			if (GameLoop::levels[GameLoop::currentLevel]->tiles[(int)move.y * 40 + (int)move.x]->isPath) {
 				GameLoop::levels[GameLoop::currentLevel]->tiles[(int)TargetPosition.y * 40 + (int)TargetPosition.x]->isPath = false;
 				TargetPosition += dir;
-				if (GameLoop::levels[GameLoop::currentLevel]->tiles[(int)TargetPosition.y * 40 + (int)TargetPosition.x]->NPC != 0) {
-					GameLoop::levels[GameLoop::currentLevel]->tiles[(int)TargetPosition.y * 40 + (int)TargetPosition.x]->npcActive = true;
+				if (GameLoop::levels[GameLoop::currentLevel]->tiles[(int)TargetPosition.y * 40 + ((int)TargetPosition.x + 1)]->NPC != 0) {
+					GameLoop::levels[GameLoop::currentLevel]->tiles[(int)TargetPosition.y * 40 + ((int)TargetPosition.x + 1)]->npcActive = true;
+				}
+				if (GameLoop::levels[GameLoop::currentLevel]->tiles[(int)TargetPosition.y * 40 + ((int)TargetPosition.x - 1)]->NPC != 0) {
+					GameLoop::levels[GameLoop::currentLevel]->tiles[(int)TargetPosition.y * 40 + ((int)TargetPosition.x - 1)]->npcActive = true;
+				}
+				if (GameLoop::levels[GameLoop::currentLevel]->tiles[((int)TargetPosition.y + 1) * 40 + (int)TargetPosition.x]->NPC != 0) {
+					GameLoop::levels[GameLoop::currentLevel]->tiles[((int)TargetPosition.y + 1) * 40 + (int)TargetPosition.x]->npcActive = true;
+				}
+				if (GameLoop::levels[GameLoop::currentLevel]->tiles[((int)TargetPosition.y - 1) * 40 + (int)TargetPosition.x]->NPC != 0) {
+					GameLoop::levels[GameLoop::currentLevel]->tiles[((int)TargetPosition.y - 1) * 40 + (int)TargetPosition.x]->npcActive = true;
 				}
 				
 				moved = 0.5 + GameLoop::elapsedTime;
