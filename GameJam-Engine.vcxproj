@@ -495,6 +495,7 @@
     <None Include="res\levels\lvl1.level">
       <DeploymentContent>false</DeploymentContent>
     </None>
+    <None Include="res\levels\lvl2.level" />
     <None Include="res\shaders\Basic.shader">
       <DeploymentContent>false</DeploymentContent>
     </None>
@@ -649,6 +650,7 @@
     <Image Include="res\levels\lvl1.png">
       <DeploymentContent>false</DeploymentContent>
     </Image>
+    <Image Include="res\levels\lvl2.png" />
     <Image Include="res\textures\arrow.png" />
     <Image Include="res\textures\cup1.png" />
     <Image Include="res\textures\cup2.png" />
@@ -681,6 +683,7 @@
     <Media Include="res\levels\lvl1.mp3">
       <DeploymentContent>false</DeploymentContent>
     </Media>
+    <Media Include="res\levels\lvl2.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

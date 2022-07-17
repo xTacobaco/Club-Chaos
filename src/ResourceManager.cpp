@@ -28,8 +28,8 @@ Texture ResourceManager::GetTexture(std::string name) {
     return Textures[name];
 }
 
-Level* ResourceManager::LoadLevel(const char* file) {
-    return loadLevelFromFile(file);
+Level* ResourceManager::LoadLevel(const char* file, int level) {
+    return loadLevelFromFile(file, level);
 }
 
 void ResourceManager::Clear() {
@@ -97,7 +97,7 @@ Texture ResourceManager::loadTextureFromFile(const char* file, bool alpha) {
     return texture;
 }
 
-Level* ResourceManager::loadLevelFromFile(const char* file) {
+Level* ResourceManager::loadLevelFromFile(const char* file, int lvl) {
     std::string image_path(file);
     image_path.append(".png");
     ResourceManager::LoadTexture(image_path.c_str(), true, file);
@@ -110,7 +110,7 @@ Level* ResourceManager::loadLevelFromFile(const char* file) {
     std::string line;
     unsigned int yy = 0;
 
-    Level* level = new Level(lvlTexture);
+    Level* level = new Level(lvlTexture, lvl);
     while (getline(stream, line)) {
         int width = line.length();
         for (int i = 0; i < width; i++) {

@@ -1436,6 +1436,7 @@
     <None Include="LICENSE" />
     <None Include="res\levels\lvl1.level" />
     <None Include="vendor\irrKlang\lib\Win32-visualStudio\irrKlang.exp" />
+    <None Include="res\levels\lvl2.level" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="vendor\GLFW\lib-vc2019\glfw3.lib" />
@@ -1516,8 +1517,12 @@
     <Image Include="res\textures\donut1.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\levels\lvl2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\levels\lvl1.mp3" />
+    <Media Include="res\levels\lvl2.mp3" />
   </ItemGroup>
 </Project>

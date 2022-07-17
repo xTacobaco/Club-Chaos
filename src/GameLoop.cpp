@@ -9,7 +9,7 @@
 using namespace irrklang;
 ISoundEngine* SoundEngine = createIrrKlangDevice();
 
-int GameLoop::currentLevel = 0;
+int GameLoop::currentLevel = 1;
 std::vector<Level*> GameLoop::levels;
 
 double GameLoop::elapsedTime = 0;
@@ -57,9 +57,11 @@ void GameLoop::Init() {
 	ResourceManager::LoadTexture("res/textures/donut1.png", true, "donut1");
 	ResourceManager::LoadTexture("res/textures/donut2.png", true, "donut2");
 
-	levels.push_back(ResourceManager::LoadLevel("res/levels/lvl1"));
+	levels.push_back(ResourceManager::LoadLevel("res/levels/lvl1", 1));
+	levels.push_back(ResourceManager::LoadLevel("res/levels/lvl2", 2));
 
-	SoundEngine->play2D("res/levels/lvl1.mp3", true);
+	//SoundEngine->play2D("res/levels/lvl1.mp3", true);
+	SoundEngine->play2D("res/levels/lvl2.mp3", true);
 	SoundEngine->setSoundVolume(0.3f);
 }
 

@@ -1,5 +1,7 @@
 #include "Tile.h"
 
+#include <iostream>
+
 #include "GameLoop.h"
 #include "ResourceManager.h"
 
@@ -14,13 +16,20 @@ Tile::~Tile() {
 }
 
 void Tile::Update(float deltaTime) {
+	if (delay > 0.0f) {
+		delay -= deltaTime;
+		if (delay <= 0.0f) {
+			glow = 4.0f;
+		}
+	}
+	
 	if (this->Light || npcActive) {
-		this->ColorTarget = this->Colors[((int)Position.x + (int)Position.y) % 2] * 2.0f;
+		this->ColorTarget = this->Colors[((int)Position.x + (int)Position.y) % 2] * 1.5f;
 	} else {
-		this->ColorTarget = this->Colors[((int)Position.x + (int)Position.y) % 2] * 0.7f;
+		this->ColorTarget = this->Colors[((int)Position.x + (int)Position.y) % 2] * 1.2f;
 	}
 	this->Color = glm::mix(this->Color, this->ColorTarget, glm::vec3(0.1f));
-	glow = glm::mix(glow, 1.0f, 0.075f);
+	glow = glm::mix(glow, 1.0f, 0.01f);
 	if (npcActive) {
 		glow = 1.5f;
 	}

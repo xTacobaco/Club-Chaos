@@ -5,7 +5,7 @@
 #include "GameLoop.h"
 #include "ResourceManager.h"
 
-Level::Level(Texture lvlTexture) {
+Level::Level(Texture lvlTexture, int level) {
     Shader basicShader = ResourceManager::GetShader("basicShader").Bind();
     lvlSprite = new SpriteObject(basicShader, lvlTexture);
 
@@ -26,8 +26,13 @@ Level::Level(Texture lvlTexture) {
     player = new Player(spawn);
     dice = new Dice(glm::vec2(1280.0f/10.0f*8.7f, 64.0f));
 
-    pp.push_back(path);
-    pp.push_back(path2);
+    if (level == 1) {
+        pp.push_back(path);
+        pp.push_back(path2);
+    } else {
+        pp.push_back(path3);
+        pp.push_back(path4);
+    }
 }
 
 void Level::Patherize() { // jeeeeesus, should have just implemented A*
@@ -75,15 +80,18 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
     }
 
     glm::vec2 pos = player->TargetPosition;
-    if (glm::abs(x) < glm::abs(y)) {
-        pos.x += x;
-        for (int i = 0; i < glm::abs(x); i++) {
-            tiles[(int)player->TargetPosition.y * 40 + ((int)player->TargetPosition.x + i*glm::sign(x))]->isPath = true;
+    if (glm::abs(x) < 8 || glm::abs(y) < 8) {
+        if (glm::abs(x) < glm::abs(y)) {
+            pos.x += x;
+            for (int i = 0; i < glm::abs(x); i++) {
+                tiles[(int)player->TargetPosition.y * 40 + ((int)player->TargetPosition.x + i * glm::sign(x))]->isPath = true;
+            }
         }
-    } else {
-        pos.y += y;
-        for (int i = 0; i < glm::abs(y); i++) {
-            tiles[((int)player->TargetPosition.y + i * glm::sign(y)) * 40 + (int)player->TargetPosition.x]->isPath = true;
+        else {
+            pos.y += y;
+            for (int i = 0; i < glm::abs(y); i++) {
+                tiles[((int)player->TargetPosition.y + i * glm::sign(y)) * 40 + (int)player->TargetPosition.x]->isPath = true;
+            }
         }
     }
     
@@ -96,9 +104,10 @@ void Level::Patherize() { // jeeeeesus, should have just implemented A*
     
     tiles[(int)player->TargetPosition.y * 40 + (int)player->TargetPosition.x]->isPath = true;
 
-    for (auto t : tiles) {
-        if (t->isPath) {
-            t->glow = 10.0f;
+    for (int i = 0; i < pp[currentPath].size(); i++) {
+        int index = (int)pp[currentPath][i].y * 40 + (int)pp[currentPath][i].x;
+        if (tiles[index]->isPath) {
+            tiles[index]->delay = (float)i / 100.0f;
         }
     }
     currentPath = ++currentPath % pp.size();
@@ -123,10 +132,6 @@ void Level::Update(float deltatime) {
 
     for (auto t : tiles) {
         t->Light = (int)GameLoop::elapsedTime % 2;
-    
-        if (t->isPath) {
-            t->Light = true;
-        }
     }
 
     for (auto t : tiles) { t->Update(deltatime); }
