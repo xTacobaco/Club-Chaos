@@ -29,16 +29,23 @@ void GameLoop::Init() {
 	basicShader.SetMatrix4("projection", projection);
 
 	ResourceManager::LoadTexture("res/textures/tile.png", true, "tile");
+	
 	ResourceManager::LoadTexture("res/textures/dit.png", true, "dit");
 	ResourceManager::LoadTexture("res/textures/dash.png", true, "dash");
+	ResourceManager::LoadTexture("res/textures/arrow.png", true, "arrow");
+	
 	ResourceManager::LoadTexture("res/textures/player.png", true, "player");
 	ResourceManager::LoadTexture("res/textures/player2.png", true, "player2");
+	
 	ResourceManager::LoadTexture("res/textures/dice1.png", true, "dice1");
 	ResourceManager::LoadTexture("res/textures/dice2.png", true, "dice2");
 	ResourceManager::LoadTexture("res/textures/dice3.png", true, "dice3");
 	ResourceManager::LoadTexture("res/textures/dice4.png", true, "dice4");
 	ResourceManager::LoadTexture("res/textures/dice5.png", true, "dice5");
 	ResourceManager::LoadTexture("res/textures/dice6.png", true, "dice6");
+	
+	ResourceManager::LoadTexture("res/textures/kid1.png", true, "kid1");
+	ResourceManager::LoadTexture("res/textures/kid2.png", true, "kid2");
 
 	levels.push_back(ResourceManager::LoadLevel("res/levels/lvl1"));
 

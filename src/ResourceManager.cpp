@@ -115,13 +115,16 @@ Level* ResourceManager::loadLevelFromFile(const char* file) {
         int width = line.length();
         for (int i = 0; i < width; i++) {
             Tile* tile = new Tile(glm::vec2(i, yy));
-            if (line[i] == '0' || line[i] == '2') {
+            if (line[i] == '0' || line[i] == '2' || line[i] == '3') {
                 tile->Visible = true;
             }
             if (line[i] == '2') {
                 level->spawn = glm::vec2(i, yy);
                 level->player->Position = level->spawn;
                 level->player->TargetPosition = level->spawn;
+            }
+            if (line[i] == '3') {
+                level->goal = glm::vec2(i, yy);
             }
             if (yy <= 3) {
                 tile->Visible = false;

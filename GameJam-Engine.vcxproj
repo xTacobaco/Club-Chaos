@@ -647,6 +647,7 @@
     <Image Include="res\levels\lvl1.png">
       <DeploymentContent>false</DeploymentContent>
     </Image>
+    <Image Include="res\textures\arrow.png" />
     <Image Include="res\textures\dash.png" />
     <Image Include="res\textures\dice1.png" />
     <Image Include="res\textures\dice2.png" />
@@ -655,6 +656,9 @@
     <Image Include="res\textures\dice5.png" />
     <Image Include="res\textures\dice6.png" />
     <Image Include="res\textures\dit.png" />
+    <Image Include="res\textures\kid1.png" />
+    <Image Include="res\textures\kid2.png" />
+    <Image Include="res\textures\line.png" />
     <Image Include="res\textures\player.png">
       <DeploymentContent>false</DeploymentContent>
     </Image>
